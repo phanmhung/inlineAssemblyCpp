@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-
+//Сложение
 int Add(int a, int b) {
     int c = 0;
 
