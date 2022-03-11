@@ -251,10 +251,10 @@ int main()
     
     cout << "Logical operations:" << endl;
 
-    cout << "not 10 => " << Not(10) << endl;
-    cout << "10 and 15 => " << And(10, 15) << endl;                     
-    cout << "10 or 15 => " << Or(10, 15) << endl;                       
-    cout << "10 xor 15 => " << Xor(10, 15) << endl;
+    cout << "not 0 is " << Not(0) << endl;
+    cout << "20 and 15 is " << And(20, 15) << endl;                     
+    cout << "9 or 6 is " << Or(9, 6) << endl;                       
+    cout << "69 xor 96 is " << Xor(69, 96) << endl;
 
     cout << "Index in Array:" << endl;
 
