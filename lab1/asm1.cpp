@@ -186,67 +186,60 @@ int ElementByIndex(int* a, int b) {
     }
     return c;
 }
-
+//Операции сдвига
 int LogicRight(int a, int b) {
     int c = 0;
-
     _asm {
         mov eax, a
         mov ecx, b
         shr eax, cl
         mov c, eax
     }
-
     return c;
 }
 
 int LogicLeft(unsigned char a, unsigned char b) {
     unsigned char c;
-
     _asm {
         mov al, a
         mov cl, b
         shl al, cl
         mov c, al
     }
-
     return c;
 }
 
 int CicleRight(unsigned char a, unsigned char b) {
     unsigned char c;
-
     _asm {
         mov al, a
         mov cl, b
         ror al, cl
         mov c, al
     }
-
     return c;
 }
 
 int CicleLeft(unsigned char a, unsigned char b) {
     unsigned char c;
-
     _asm {
         mov al, a
         mov cl, b
         rol al, cl
         mov c, al
     }
-
     return c;
 }
 
 int main()
 {
+    cout << "Mathematical operations:" << endl;
     cout << "20 + 21 = " << Add(20, 21) << endl; 
     cout << "0 - 32 = " << Sub(0, 32) << endl;
     cout << "-13 * 2 = " << Mul(-13, 2) << endl;
     cout << "200 / 5 = " << Div(200, 5) << endl;
 
-    cout << endl;
+    cout << "Comparison operations:" << endl;
 
     cout << "1 == 1 ? " << Equal(1, 1) << endl;
     cout << "10 == 11 ? " << Equal(10, 11) << endl;
@@ -256,22 +249,24 @@ int main()
     cout << "5 >= 2 ? " << GreaterOrEqual(5, 2) << endl;
     cout << "5 != 5 ? " << NotEqual(5, 5) << endl;
     
-    cout << endl;
+    cout << "Logical operations:" << endl;
 
     cout << "not 10 => " << Not(10) << endl;
     cout << "10 and 15 => " << And(10, 15) << endl;                     
     cout << "10 or 15 => " << Or(10, 15) << endl;                       
     cout << "10 xor 15 => " << Xor(10, 15) << endl;
 
-    cout << endl;
+    cout << "Index in Array:" << endl;
 
-    int a[] = { 0, 11, 22, 33, 44, 55, 66 };
+    int a[] = { 0, 10, 20, 30, 40, 50, 60 };
 
-    cout << "4th element in [ 0, 11, 22, 33, 44, 55, 66 ]: " << ElementByIndex(a, 4) << endl << endl;
+    cout << "4th element in [ 0, 10, 20, 30, 40, 50, 60 ]: " << ElementByIndex(a, 5) << endl << endl;
+    
+    cout << "Shift operations:" << endl;
+    
+    cout << "shift right 111 by 2 " << LogicRight(111, 2) << endl;  
+    cout << "shift left 230 by 3: " << LogicLeft(230, 3) << endl;    
 
-    cout << "logic shift right 333 (101001101) by 2 " << LogicRight(333, 2) << endl;  
-    cout << "logic shift left 333 (101001101) by 2: " << LogicLeft(333, 2) << endl;    
-
-    cout << "cicle shift right 333 (101001101) by 2: " << CicleRight(333, 2) << endl; 
-    cout << "cicle shift left  333 (101001101) by 2: " << CicleLeft(333, 2) << endl;   
+    cout << "shift right 111 by 3: " << CicleRight(111, 3) << endl; 
+    cout << "shift left 230 by 2: " << CicleLeft(230, 2) << endl;   
 }
